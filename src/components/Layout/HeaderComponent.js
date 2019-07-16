@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
+const headerLogo = process.env.PUBLIC_URL + 'images/default/logo.png';
 export default class HeaderComponent extends Component {
     render() {
         return (
@@ -36,7 +38,11 @@ export default class HeaderComponent extends Component {
                             <div className="row">
                                 <div className="col-sm-4">
                                     <div className="logo pull-left">
-                                        <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                                        <a>
+                                            <Link to="/">
+                                                <img src={headerLogo} alt="" />
+                                            </Link>
+                                        </a>
                                     </div>
                                     <div className="btn-group pull-right">
                                         <div className="btn-group">
@@ -68,8 +74,18 @@ export default class HeaderComponent extends Component {
                                             <li><a href="#"><i className="fa fa-user"></i> Account</a></li>
                                             <li><a href="#"><i className="fa fa-star"></i> Wishlist</a></li>
                                             <li><a href="checkout.html"><i className="fa fa-crosshairs"></i> Checkout</a></li>
-                                            <li><a href="cart.html"><i className="fa fa-shopping-cart"></i> Cart</a></li>
-                                            <li><a href="login.html"><i className="fa fa-lock"></i> Login</a></li>
+                                            <li><a>
+                                                    <Link to="/cart">
+                                                        <i className="fa fa-shopping-cart"></i> Cart
+                                                    </Link>
+                                                </a>
+                                            </li>
+                                            <li><a>
+                                                    <Link to="/login">
+                                                        <i className="fa fa-lock"></i> Login
+                                                    </Link>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -91,7 +107,13 @@ export default class HeaderComponent extends Component {
                                     </div>
                                     <div className="mainmenu pull-left">
                                         <ul className="nav navbar-nav collapse navbar-collapse">
-                                            <li><a href="index.html" className="active">Home</a></li>
+                                            <li>
+                                                <a className="active">
+                                                    <Link to="/">
+                                                        Home
+                                                    </Link>
+                                                </a>
+                                            </li>
                                             <li className="dropdown"><a href="#">Shop<i className="fa fa-angle-down"></i></a>
                                                 <ul role="menu" className="sub-menu">
                                                     <li><a href="shop.html">Products</a></li>
@@ -107,7 +129,11 @@ export default class HeaderComponent extends Component {
                                                     <li><a href="blog-single.html">Blog Single</a></li>
                                                 </ul>
                                             </li> 
-                                            <li><a href="404.html">404</a></li>
+                                            <li>
+                                                <a href="404.html">
+                                                    <Link to="/404">404</Link>
+                                                </a>
+                                            </li>
                                             <li><a href="contact-us.html">Contact</a></li>
                                         </ul>
                                     </div>
